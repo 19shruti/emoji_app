@@ -5,7 +5,15 @@ var emojiDictionary = {
   "😈": "angry",
   "😢": "one drop anshu",
   "😭": "crying",
-  "🤐": "speechless"
+  "🤐": "speechless",
+  "😂": "laughing",
+  "🤩": "exciting",
+  "🤔": "strange",
+  "🤣": "laughing out loud",
+  "🤑": "money",
+  "🤮": "pissed of ",
+  "😍": "beautiful",
+  "🙄": "strange"
 };
 var emojiWeKnow = Object.keys(emojiDictionary);
 
@@ -27,19 +35,22 @@ export default function App() {
   }
 
   return (
-    <div className="app">
+    <div className="App">
       <h1> INSIDE OUT </h1>
       <input onChange={emojiInputHandler} />
 
       <h2>{meaning}</h2>
       <h3> emoji we know </h3>
-      {emojiWeKnow.map(function (emoji) {
-        return (
-          <span onClick={() => emojiClickHandler(emoji)} key={emoji}>
-            {emoji}
-          </span>
-        );
-      })}
+
+      <ul className="non-bullets">
+        {emojiWeKnow.map(function (emoji) {
+          return (
+            <span onClick={() => emojiClickHandler(emoji)} key={emoji}>
+              <a href="#output"> {emoji}</a>
+            </span>
+          );
+        })}
+      </ul>
     </div>
   );
 }
